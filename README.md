@@ -90,7 +90,7 @@ The neutral family-size variance is calculated before adding selection, so varia
 Distribution parameterizations:
 
 - Poisson: offspring are drawn from `Poisson(mu)`.
-- Negative binomial: offspring have mean `mu` and dispersion parameter `r`. Neutral per-copy variance is `1 + 2/r`; neutral family-size variance is `2 + 4/r`.
+- Negative binomial: offspring have mean `mu` and dispersion parameter `r`. Neutral per-copy variance is `1 + 1/r`; neutral family-size variance is `2 + 2/r`.
 - Fractional: each copy has probability `f` of producing zero offspring. The fractional mean is `mu_frac = mu / (1 - f)`, and active copies draw offspring from `Poisson(mu_frac)`.
 
 For the fractional draw:
@@ -105,9 +105,9 @@ Neutral fractional family-size variance:
 
 Effective population size:
 
-`Ne = ((4 * N_census) - 4) / (V + 2)`
+`Ne = (4 * N_census) / (V + 2)`
 
-Figure 1 uses branching-process theoretical fixation probabilities for the plotted offspring distributions. Figure 2 is negative-binomial only and uses:
+Figure 1 uses branching-process theoretical fixation probabilities for the plotted offspring distributions. Figure 2 is negative-binomial only. It computes `Ne` from `Ne = (4 * N_census) / (V + 2)` and uses:
 
 `pfix = 1 - exp(-2 * s * (Ne / N_census))`
 
